@@ -32,7 +32,7 @@ public class Register extends AppCompatActivity {
         vName = findViewById(R.id.editTextTextPersonName);
         vEmail = findViewById(R.id.editTextTextEmailAddress);
         vPassword = findViewById(R.id.editTextTextPassword);
-        btnRegister = findViewById(R.id.btnRegister);
+        btnRegister = findViewById(R.id.btnLogin);
         lnkLogin = findViewById(R.id.lnkLogin);
 
         fAuth = FirebaseAuth.getInstance();
@@ -81,6 +81,15 @@ public class Register extends AppCompatActivity {
                 });
 
             }
-        });
+        }
+
+
+        );
+
     }
+    public void login(View view) {
+        startActivity(new Intent(getApplicationContext(),Login.class));
+        finish();
+    }
+
 }
