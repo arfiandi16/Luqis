@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "563215911124",
+    "firebase_url": "https://luqisdb-default-rtdb.firebaseio.com",
+    "project_id": "luqisdb",
+    "storage_bucket": "luqisdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563215911124:android:be0f6bb73b85d75c82d341",
+        "android_client_info": {
+          "package_name": "com.example.luqis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "563215911124-ceje77h7hg31q34n8qk3751pbt75cbfk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9AFq7_hwg6Wim-AOPn0LsPnkRdzJVaAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "563215911124-ceje77h7hg31q34n8qk3751pbt75cbfk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
