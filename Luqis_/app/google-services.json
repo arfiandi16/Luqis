@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "884350540490",
+    "project_id": "newluqis",
+    "storage_bucket": "newluqis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884350540490:android:fc1a257c1241aa7b40b233",
+        "android_client_info": {
+          "package_name": "com.example.luqis_"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884350540490-ut2ke9cpkd7fa1o7bdta05tskk7hmg21.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-bdAEg17witHdy84WAJ_S60vUaTA8uV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884350540490-ut2ke9cpkd7fa1o7bdta05tskk7hmg21.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
