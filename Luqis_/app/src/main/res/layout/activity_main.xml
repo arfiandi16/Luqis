@@ -4,16 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/welcome"
+    android:background="#F7F7F7"
+    android:backgroundTint="#F7F7F7"
     tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/main_login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_join_now_btn"
+        android:layout_alignParentStart="false"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/buttons"
+        android:fontFamily="@font/montserrat"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="@color/colorAccent"
+        android:textSize="12sp"
+        android:typeface="monospace" />
+
+    <Button
+        android:id="@+id/main_join_now_btn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:backgroundTint="#00000000"
+        android:fontFamily="@font/montserrat"
+        android:text="Don't have an account? Sign up"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textSize="12sp"
+        android:typeface="monospace"
+        app:iconTint="#00000000" />
+
     <ImageView
         android:id="@+id/app_logo"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/applogo"
-        />
+        android:layout_marginTop="195dp"
+        android:src="@drawable/luqis_logo"
+        tools:srcCompat="@drawable/luqis_logo" />
+
     <TextView
         android:id="@+id/app_slogan"
         android:layout_width="248dp"
@@ -22,43 +61,9 @@
         android:layout_alignParentTop="true"
         android:layout_marginEnd="80dp"
         android:layout_marginTop="142dp"
-        android:text="Find, Discover, Choose and Buy anything online."
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
-        android:textStyle="bold|italic"
-        />
-    <Button
-        android:id="@+id/main_login_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/buttons"
-        android:padding="20dp"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:text="Already have an Account? Login"
-        android:textColor="@android:color/white"
-        />
-
-    <Button
-        android:id="@+id/main_join_now_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/main_login_btn"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/input_design"
-        android:padding="20dp"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:text="Join Now"
-        android:textColor="@android:color/white"
-        />
+        android:textStyle="bold|italic" />
 
 </RelativeLayout>
