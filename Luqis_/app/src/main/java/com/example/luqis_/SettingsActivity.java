@@ -32,7 +32,7 @@ import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class SettinsActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity {
     private CircleImageView profileImageView;
     private EditText fullNameEditText, userPhoneEditText, addressEditText;
     private TextView profileChangeTextBtn,  closeTextBtn, saveTextButton;
@@ -46,7 +46,7 @@ public class SettinsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settins);
+        setContentView(R.layout.activity_settings);
         storageProfilePrictureRef = FirebaseStorage.getInstance().getReference().child("Profile pictures");
 
         profileImageView = (CircleImageView) findViewById(R.id.settings_profile_image);
@@ -90,7 +90,7 @@ public class SettinsActivity extends AppCompatActivity {
 
                 CropImage.activity(imageUri)
                         .setAspectRatio(1, 1)
-                        .start(SettinsActivity.this);
+                        .start(SettingsActivity.this);
             }
         });
     }
@@ -103,8 +103,8 @@ public class SettinsActivity extends AppCompatActivity {
         userMap. put("address", addressEditText.getText().toString());
         userMap. put("phoneOrder", userPhoneEditText.getText().toString());
         ref.child(Prevalent.currentOnlineUser.getPhone()).updateChildren(userMap);
-        startActivity(new Intent(SettinsActivity.this, HomeActivity.class));
-        Toast.makeText(SettinsActivity.this, "Profile Info update successfully.", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(SettingsActivity.this, HomeActivity.class));
+        Toast.makeText(SettingsActivity.this, "Profile Info update successfully.", Toast.LENGTH_SHORT).show();
         finish();
     }
 
@@ -124,7 +124,7 @@ public class SettinsActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Error, Try Again.", Toast.LENGTH_SHORT).show();
 
-            startActivity(new Intent(SettinsActivity.this, SettinsActivity.class));
+            startActivity(new Intent(SettingsActivity.this, SettingsActivity.class));
             finish();
         }
     }
@@ -188,13 +188,13 @@ public class SettinsActivity extends AppCompatActivity {
                         userMap. put("image", myUrl);
                         ref.child(Prevalent.currentOnlineUser.getPhone()).updateChildren(userMap);
                         progressDialog.dismiss();
-                        startActivity(new Intent(SettinsActivity.this, HomeActivity.class));
-                        Toast.makeText(SettinsActivity.this, "Profile Info update successfully.", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(SettingsActivity.this, HomeActivity.class));
+                        Toast.makeText(SettingsActivity.this, "Profile Info update successfully.", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                     else{
                         progressDialog.dismiss();
-                        Toast.makeText(SettinsActivity.this, "Error.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SettingsActivity.this, "Error.", Toast.LENGTH_SHORT).show();
                     }
                 }
             });

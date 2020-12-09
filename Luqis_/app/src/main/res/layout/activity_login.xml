@@ -119,13 +119,15 @@
         android:id="@+id/not_admin_panel_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/login_btn"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="22dp"
         android:layout_marginLeft="80dp"
-        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
         android:text="I'm not an Admin?"
+        android:fontFamily="@font/montserrat"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         android:visibility="invisible" />
 
