@@ -48,7 +48,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "tShirts");
+                intent.putExtra("category", "Lukisan");
                 startActivity(intent);
             }
         });
@@ -57,7 +57,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "Sports tShirts");
+                intent.putExtra("category", "Lukisan Ilustrasi");
                 startActivity(intent);
             }
         });
