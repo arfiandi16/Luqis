@@ -29,6 +29,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
@@ -92,15 +95,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Products model)
                     {
+                        Locale localeID = new Locale("in", "ID");
+                        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+
                         holder.txtProductName.setText(model.getPname());
-                        holder.txtProductDescription.setText(model.getDescription());
-                        holder.txtProductPrice.setText("Price = " + model.getPrice() + "$");
+                        holder.txtProductPrice.setText(formatRupiah.format(Double.parseDouble(model.getPrice())));
                         Picasso.get().load(model.getImage()).into(holder.imageView);
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 Intent intent =new Intent(HomeActivity.this,ProductDetailsActivity.class);
                                 intent.putExtra("pid",model.getPid());
+                                //intent.putExtra("username",model.getUsername());
                                 startActivity(intent);
                             }
                         });
@@ -160,7 +166,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(HomeActivity.this,SearchProductsActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_categories) {
+        } else if (id == R.id.nav_add_items) {
+            Intent intent=new Intent(HomeActivity.this, UserAddNewProduct.class);
+            intent.putExtra("category", "Lukisan Ilustrasi");
+            startActivity(intent);
 
         } else if (id == R.id.nav_settings) {
             Intent intent=new Intent(HomeActivity.this, SettingsActivity.class);

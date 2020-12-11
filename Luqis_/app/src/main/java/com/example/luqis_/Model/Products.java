@@ -1,12 +1,12 @@
 package com.example.luqis_.Model;
 
 public class Products {
-    private String pname, description, price, image, category, pid, date, time;
+    private String pname, description, price, image, category, pid, date, time, username;
     public Products()
     {
 
     }
-    public Products(String pname, String description, String price, String image, String category, String pid, String date, String time) {
+    public Products(String pname, String description, String price, String image, String category, String pid, String date, String time, String username) {
         this.pname = pname;
         this.description = description;
         this.price = price;
@@ -15,7 +15,11 @@ public class Products {
         this.pid = pid;
         this.date = date;
         this.time = time;
+        this.username = username;
+
     }
+
+
     public String getPname() {
         return pname;
     }
@@ -78,6 +82,14 @@ public class Products {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
 }

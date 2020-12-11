@@ -25,6 +25,18 @@
             android:icon="@drawable/common_google_signin_btn_icon_dark"
             android:title="Settings"
             android:iconTint="@android:color/white"/>
+
+        <item
+            android:id="@+id/nav_add_items"
+            android:icon="@drawable/common_google_signin_btn_icon_dark"
+            android:title="Add Items"
+            android:iconTint="@android:color/white"/>
+        <item
+            android:id="@+id/nav_check"
+            android:icon="@drawable/nav_cart"
+            android:title="Check Order"
+            android:iconTint="@android:color/white"/>
+
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/logout"

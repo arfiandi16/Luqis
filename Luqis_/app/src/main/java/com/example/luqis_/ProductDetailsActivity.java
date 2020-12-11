@@ -23,9 +23,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class ProductDetailsActivity extends AppCompatActivity {
     private Button addToCartButton;
@@ -33,12 +35,14 @@ public class ProductDetailsActivity extends AppCompatActivity {
     private ElegantNumberButton numberButton;
     private TextView productPrice,productDescription,productName;
     private String productID="", state = "Normal";
+    private String productUsername="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
         productID = getIntent().getStringExtra("pid");
+        //productUsername = getIntent().getStringExtra("username");
         addToCartButton =(Button) findViewById(R.id.pd_add_to_cart_button);
         numberButton = (ElegantNumberButton) findViewById(R.id.number_btn);
         productImage = (ImageView) findViewById(R.id.product_image_details);
@@ -76,34 +80,40 @@ public class ProductDetailsActivity extends AppCompatActivity {
         saveCurrentTime = currentDate.format(calForDate.getTime());
         final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
         final HashMap<String, Object> cartMap = new HashMap<>();
-        cartMap.put("pid",productID);
-        cartMap.put("pname",productName.getText().toString());
-        cartMap.put("price",productPrice.getText().toString());
-        cartMap.put("date",saveCurrentDate);
-        cartMap.put("time",saveCurrentTime);
-        cartMap.put("quantity",numberButton.getNumber());
-        cartMap.put("discount","");
 
-        cartListRef.child("User view").child(Prevalent.currentOnlineUser.getPhone()).child("Products").child(productID).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
-                    cartListRef.child("Admin view").child(Prevalent.currentOnlineUser.getPhone())
-                            .child("Products").child(productID)
-                            .updateChildren(cartMap)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()){
-                                        Toast.makeText(ProductDetailsActivity.this,"Added to cart List",Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(ProductDetailsActivity.this,HomeActivity.class);
-                                        startActivity(intent);
+        if(!Prevalent.currentOnlineUser.getName().equals(productUsername)) {
+            cartMap.put("pid", productID);
+            cartMap.put("pname", productName.getText().toString());
+            cartMap.put("price", productPrice.getText().toString());
+            cartMap.put("date", saveCurrentDate);
+            cartMap.put("time", saveCurrentTime);
+            cartMap.put("quantity", numberButton.getNumber());
+            cartMap.put("discount", "");
+
+
+            cartListRef.child("User view").child(Prevalent.currentOnlineUser.getPhone()).child("Products").child(productID).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        cartListRef.child("Admin view").child(Prevalent.currentOnlineUser.getPhone())
+                                .child("Products").child(productID)
+                                .updateChildren(cartMap)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(ProductDetailsActivity.this, "Added to cart List", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(ProductDetailsActivity.this, HomeActivity.class);
+                                            startActivity(intent);
+                                        }
                                     }
-                                }
-                            });
+                                });
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            Toast.makeText(ProductDetailsActivity.this, "You are not allowed to buy your own product(s)", Toast.LENGTH_SHORT).show();
+        }
 
 
 
@@ -115,9 +125,14 @@ public class ProductDetailsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
+                    Locale localeID = new Locale("in", "ID");
+                    NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+
                     Products products=dataSnapshot.getValue(Products.class);
+                    //System.out.println(products.getUsername());
+                    productUsername = products.getUsername();
                     productName.setText(products.getPname());
-                    productPrice.setText(products.getPrice());
+                    productPrice.setText(formatRupiah.format(Double.parseDouble(products.getPrice())));
                     productDescription.setText(products.getDescription());
                     Picasso.get().load(products.getImage()).into(productImage);
 
