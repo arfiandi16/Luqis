@@ -127,12 +127,11 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()){
                     Locale localeID = new Locale("in", "ID");
                     NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
-
                     Products products=dataSnapshot.getValue(Products.class);
                     //System.out.println(products.getUsername());
                     productUsername = products.getUsername();
                     productName.setText(products.getPname());
-                    productPrice.setText(formatRupiah.format(Double.parseDouble(products.getPrice())));
+                    productPrice.setText(products.getPrice());
                     productDescription.setText(products.getDescription());
                     Picasso.get().load(products.getImage()).into(productImage);
 
