@@ -171,7 +171,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             intent.putExtra("category", "Lukisan Ilustrasi");
             startActivity(intent);
 
-        } else if (id == R.id.nav_settings) {
+        } else if (id == R.id.nav_check){
+            Intent intent = new Intent(HomeActivity.this , UserNewOrdersActivity.class);
+            startActivity(intent);
+        }
+
+        else if (id == R.id.nav_settings) {
             Intent intent=new Intent(HomeActivity.this, SettingsActivity.class);
             startActivity(intent);
 

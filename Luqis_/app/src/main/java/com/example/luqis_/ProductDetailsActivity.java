@@ -36,6 +36,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     private TextView productPrice,productDescription,productName;
     private String productID="", state = "Normal";
     private String productUsername="";
+    private String customerName="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,13 +90,14 @@ public class ProductDetailsActivity extends AppCompatActivity {
             cartMap.put("time", saveCurrentTime);
             cartMap.put("quantity", numberButton.getNumber());
             cartMap.put("discount", "");
+            cartMap.put("productOwner",productUsername);
 
 
             cartListRef.child("User view").child(Prevalent.currentOnlineUser.getPhone()).child("Products").child(productID).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
-                        cartListRef.child("Admin view").child(Prevalent.currentOnlineUser.getPhone())
+                        cartListRef.child("User view").child(Prevalent.currentOnlineUser.getPhone())
                                 .child("Products").child(productID)
                                 .updateChildren(cartMap)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {

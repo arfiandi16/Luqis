@@ -25,13 +25,15 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
     private EditText nameEditText,phoneEditText,addressEditText,cityEditText;
     private Button confirmOrderBtn;
     private String totalAmount = "";
+    private  String productOwner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_final_order);
 
         totalAmount = getIntent().getStringExtra("Total Price");
-        Toast.makeText(this, "Total Price = $ "+totalAmount,Toast.LENGTH_SHORT).show();
+        productOwner = getIntent().getStringExtra("productOwner");
+        Toast.makeText(this, "Total Price = "+totalAmount,Toast.LENGTH_SHORT).show();
         confirmOrderBtn = (Button) findViewById(R.id.confirm_final_order_btn);
         nameEditText =(EditText) findViewById(R.id.shippment_name);
         phoneEditText =(EditText) findViewById(R.id.shippment_phone_number);
@@ -83,6 +85,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         ordersMap.put("date",saveCurrentDate);
         ordersMap.put("time",saveCurrentTime);
         ordersMap.put("state", "Not Shipped");
+        ordersMap.put("productOwner",productOwner);
         ordersRef.updateChildren(ordersMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

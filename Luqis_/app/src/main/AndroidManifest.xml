@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Luqis_"
         tools:replace="android:theme,android:icon">
-        <activity android:name=".UserAddNewProduct"></activity>
+        <activity android:name=".UserProductActivity"></activity>
+        <activity android:name=".UserNewOrdersActivity" />
+        <activity android:name=".UserAddNewProduct" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".SearchProductsActivity" />
         <activity android:name=".RegisterActivity" />

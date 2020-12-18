@@ -1,17 +1,18 @@
 package com.example.luqis_.Model;
 
 public class Cart {
-    private String pid,pname,price,quantity,discount;
+    private String pid,pname,price,quantity,discount,productOwner;
 
     public Cart() {
     }
 
-    public Cart(String pid, String pname, String price, String quantity, String discount) {
+    public Cart(String pid, String pname, String price, String quantity, String discount,String productOwner) {
         this.pid = pid;
         this.pname = pname;
         this.price = price;
         this.quantity = quantity;
         this.discount = discount;
+        this.productOwner = productOwner;
     }
 
     public String getPid() {
@@ -52,5 +53,13 @@ public class Cart {
 
     public void setDiscount(String discount) {
         this.discount = discount;
+    }
+
+    public String getProductOwner() {
+        return productOwner;
+    }
+
+    public void setProductOwner(String productOwner) {
+        this.productOwner = productOwner;
     }
 }

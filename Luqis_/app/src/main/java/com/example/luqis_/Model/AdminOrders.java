@@ -1,12 +1,12 @@
 package com.example.luqis_.Model;
 
 public class AdminOrders {
-    private String name,phone,address,city,state,date,time,totalAmount;
+    private String name,phone,address,city,state,date,time,totalAmount,productOwner;
 
     public AdminOrders() {
     }
 
-    public AdminOrders(String name, String phone, String address, String city, String state, String date, String time, String totalAmount) {
+    public AdminOrders(String name, String phone, String address, String city, String state, String date, String time, String totalAmount, String productOwner) {
         this.name = name;
         this.phone = phone;
         this.address = address;
@@ -15,6 +15,7 @@ public class AdminOrders {
         this.date = date;
         this.time = time;
         this.totalAmount = totalAmount;
+        this.productOwner = productOwner;
     }
 
     public String getName() {
@@ -79,5 +80,13 @@ public class AdminOrders {
 
     public void setTotalAmount(String totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public String getProductOwner() {
+        return productOwner;
+    }
+
+    public void setProductOwner(String productOwner) {
+        this.productOwner = productOwner;
     }
 }

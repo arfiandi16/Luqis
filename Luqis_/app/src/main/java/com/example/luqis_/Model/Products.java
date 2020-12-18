@@ -16,7 +16,6 @@ public class Products {
         this.date = date;
         this.time = time;
         this.username = username;
-
     }
 
 
