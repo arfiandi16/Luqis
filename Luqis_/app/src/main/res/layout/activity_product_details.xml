@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ProductDetailsActivity">
 
     <ImageView
@@ -50,12 +50,12 @@
 
     <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
         android:id="@+id/number_btn"
-        android:layout_width="148dp"
+        android:layout_width="189dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/pd_add_to_cart_button"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="259dp"
+        android:layout_marginStart="218dp"
         android:layout_marginTop="265dp"
         android:layout_marginEnd="4dp"
         android:elevation="60dp"

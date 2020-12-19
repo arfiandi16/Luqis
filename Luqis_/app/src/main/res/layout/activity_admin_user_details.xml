@@ -42,7 +42,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edt_edit_Phone"/>
+        android:id="@+id/edt_edit_Phone"
+        android:enabled="false"/>
 
     <Button
         android:id="@+id/btn_update"
@@ -50,5 +51,12 @@
         android:layout_height="wrap_content"
         android:text="Update"
         android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:textColor="#FF0000" />
 
 </LinearLayout>

@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class AdminUserDetails extends AppCompatActivity implements View.OnClickListener {
 
     private EditText edtName,edtPass,edtPhone;
-    private Button btnUpdate;
+    private Button btnUpdate,btnDelete;
 
     public static final String EXTRA_MEMBER = "Extra Member";
     public static final int ALERT_DIALOG_CLOSE = 10;
@@ -41,6 +41,15 @@ public class AdminUserDetails extends AppCompatActivity implements View.OnClickL
         edtPass = findViewById(R.id.edt_edit_Pass);
         edtPhone = findViewById(R.id.edt_edit_Phone);
         btnUpdate = findViewById(R.id.btn_update);
+        btnDelete = findViewById(R.id.btn_delete);
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAlertDialog(ALERT_DIALOG_DELETE);
+            }
+        });
+
         btnUpdate.setOnClickListener(this);
 
         users = getIntent().getParcelableExtra(EXTRA_MEMBER);
@@ -100,7 +109,6 @@ public class AdminUserDetails extends AppCompatActivity implements View.OnClickL
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_form, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -149,7 +157,7 @@ public class AdminUserDetails extends AppCompatActivity implements View.OnClickL
                             finish();
                         } else {
                             DatabaseReference dbMember =
-                                    mDatabase.child("member").child(userPhone);
+                                    mDatabase.child("Users").child(userPhone);
 
                             dbMember.removeValue();
 
